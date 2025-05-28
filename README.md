@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 YouTube Clone
 
-## Getting Started
+A full-featured, modern **YouTube Clone** built with the latest web technologies including **Next.js 15 (App Router)**, **React 19**, **tRPC**, **Drizzle ORM**, and more. This project demonstrates a production-grade video platform that includes video upload, streaming, authentication, and AI-powered features.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** [Next.js 15 (App Router)](https://nextjs.org/)
+- **Frontend:** [React 19](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/)
+- **Backend:** [tRPC](https://trpc.io/), [Next.js API Routes], [Edge & Server Actions]
+- **Database:** [PostgreSQL](https://www.postgresql.org/) + [Drizzle ORM](https://orm.drizzle.team/)
+- **Authentication:** [Clerk](https://clerk.dev/)
+- **Storage:** [UploadThing](https://uploadthing.com/)
+- **Video Processing:** [Mux](https://www.mux.com/)
+- **AI Integration:** OpenAI APIs (optional)
+- **Queue Jobs:** Background workers using Server Actions
+- **Type Safety:** Full end-to-end type safety with TypeScript & tRPC
+
+## 📸 Features
+
+- ✅ Full authentication flow (Sign up, Sign in, Protected routes)
+- ✅ Video upload with thumbnail and processing via Mux
+- ✅ Responsive video player with playback controls
+- ✅ Search and filtering of videos
+- ✅ Commenting system
+- ✅ Channel pages
+- ✅ Like/Dislike system
+- ✅ AI-generated video descriptions (optional)
+- ✅ Server and Client Components separation
+- ✅ Suspense and prefetching for performance
+- ✅ Mobile responsive design
+- ✅ Clean and modern UI with shadcn/ui
+- ✅ Database migrations with Drizzle
+
+## 🧱 Project Structure
+
+```
+app/
+├─ api/              # Route handlers using tRPC & Next.js API routes
+├─ components/       # Reusable UI components
+├─ db/               # Drizzle schemas and database configuration
+├─ hooks/            # Custom React hooks
+├─ lib/              # Utility functions
+├─ middleware.ts     # Middleware for auth/session
+├─ styles/           # Global styles
+└─ uploadthing/      # Upload endpoints
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/youtube-clone.git
+   cd youtube-clone
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
 
-## Learn More
+3. **Set up environment variables**
 
-To learn more about Next.js, take a look at the following resources:
+   Create a `.env` file in the root and add the following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```env
+   DATABASE_URL=your_postgres_connection_url
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+   CLERK_SECRET_KEY=your_clerk_secret
+   UPLOADTHING_SECRET=your_uploadthing_secret
+   UPLOADTHING_APP_ID=your_uploadthing_app_id
+   MUX_TOKEN_ID=your_mux_token_id
+   MUX_TOKEN_SECRET=your_mux_token_secret
+   OPENAI_API_KEY=optional_if_using_ai_features
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Run database migrations**
+   ```bash
+   pnpm drizzle-kit push
+   ```
 
-## Deploy on Vercel
+5. **Run the development server**
+   ```bash
+   pnpm dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✅ To-Do (Optional Enhancements)
+
+- [ ] Add video categories/tags
+- [ ] Implement subscriptions
+- [ ] Add notifications
+- [ ] Video analytics
+- [ ] Dark mode toggle
+- [ ] Progressive Web App (PWA) support
+
+## 📄 License
+
+This project is for educational purposes and inspired by the [Code with Antonio](https://www.codewithantonio.com/) YouTube Clone course.  
+All rights to original course material belong to him.
